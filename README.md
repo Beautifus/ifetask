@@ -1,2 +1,2 @@
 # ifetask
-http://microuncle.github.io/ifetask
+http://microuncle.github.io/ifetask/task/task001/
