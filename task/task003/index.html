@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task103</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+    .container {
+        box-sizing: border-box;
+        outline: 1px solid #999;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin: 20px;;
+        background: #eee;
+
+    }
+        .container:after {
+            display: block;
+            content: '';
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+        .one,.two , .three {
+        float: left;
+        word-break: break-all;
+        position: relative;
+
+    }
+
+        .one {
+            width: 200px;
+            box-sizing: border-box;
+            margin-left: calc(20px - 100%);
+            background: white;
+            padding: 10px 20px;
+
+        }
+        .two {
+            width:100%;
+        }
+        .three {
+            width: 120px;
+            box-sizing: border-box;
+            margin-left: -140px;
+            outline: 1px solid #999;
+            background: white;
+            padding: 10px 20px;
+        }
+        .content {
+            margin:0 160px 0 240px;
+            outline: 1px solid #999;
+            padding: 20px;
+            background: white;
+        }
+        .inner {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #999;
+            padding: 20px;
+            margin: 10px 0;
+            float: left;
+        }
+    .top {
+        display: block;
+        float: right;
+        padding-top: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="two">
+            <div class="content">
+                <p>这是一句很长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+                    长长长长长长长长长长
+                    长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+
+                    的话
+                </p>
+            </div>
+        </div>
+        <div class="one">
+            <div class="inner">个人LOGO</div><p class="top">团队名称</p>
+        </div>
+
+        <div class="three">
+            <div class="inner">个人LOGO</div>
+            <div class="inner">个人LOGO</div>
+            <div class="inner">个人LOGO</div>
+            <div class="inner">个人LOGO</div>
+        </div>
+    </div>
+</body>
+</html>
