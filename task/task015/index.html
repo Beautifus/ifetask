@@ -35,12 +35,13 @@
      * 返回一个数组，格式见函数中示例
      */
     var list = document.querySelectorAll("#source li");
+    var resort = document.querySelector("#resort");
     function getData() {
         /*
          coding here
          */
+        var data=[];
         for (var i=0;i<list.length;i++ ){
-            var data=new Array();
             data[i] = list.item(i).textContent.split("：");
         }
         /*
@@ -54,6 +55,9 @@
         return data;
 
     }
+    window.onload=function(){
+      sortAqiData(getData());
+    };
 
     /**
      * sortAqiData
@@ -61,7 +65,10 @@
      * 返回一个排序后的数组
      */
     function sortAqiData(data) {
-
+        data.sort(function(a,b){
+            return b[1]-a[1];
+        });
+        return data;
     }
 
     /**
@@ -71,6 +78,12 @@
      */
     function render(data) {
 
+        var cn =['一','二','三','四','五','六','七','八','九','十'];
+        for (var j=0; j<data.length;j++){
+            var li=document.createElement("li");
+            li.innerHTML=("第"+cn[j]+"名："+data[j][0]+"：<b>"+data[j][1]+"</b>");
+            resort.appendChild(li);
+        }
     }
 
     function btnHandle() {
@@ -83,7 +96,10 @@
     function init() {
 
         // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-
+    var btn=document.querySelector("#sort-btn");
+        btn.onclick=function(){
+            btnHandle();
+        }
     }
 
     init();
