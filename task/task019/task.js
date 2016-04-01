@@ -45,7 +45,7 @@ var rend =function(){
         odiv.setAttribute("name",datastr);
         odiv.setAttribute("title",oheight);
         odiv.style.background="#000000";
-        printtext.appendChild(odiv)
+        printtext.appendChild(odiv);
         //fengexian
     	ospan.innerHTML=oheight; 
         ospan.setAttribute("name",datastr);
@@ -72,11 +72,11 @@ var leftinbtn=function(){
 //左进
 
 var leftoutbtn=function(){
-   if (textstr()!=false){
-           data.shift(textstr());
+
+           data.shift();
            rend();
 
-	}
+
 };
 //左出
 var rightinbtn=function(){
@@ -93,12 +93,11 @@ var rightinbtn=function(){
 };
 //右进
 var rightoutbtn=function(){
-    if (textstr()!=false){
-		data.pop(textstr());
-		printtext.innerHTML="";
+
+		data.pop();
 
 		rend();
-	}
+
 };
 //右出
 
