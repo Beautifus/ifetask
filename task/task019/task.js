@@ -151,21 +151,31 @@ var clickbutton=function(){
 //事件绑定
 var divclick=function(){
     printtext.addEventListener("click",function(event){
-        var divstr=data[event.target.getAttribute("name")];
-        data.splice(event.target.getAttribute("name"),1);
-        rend();
-        alert(divstr)
+        if (event.target.getAttribute("name").toLowerCase()!=undefined){
+            var divstr=data[event.target.getAttribute("name")];
+            data.splice(event.target.getAttribute("name"),1);
+            rend();
+            alert(divstr)
+        }
+
 
     })
 };
 var spanclick=function(){
-    printsptext.addEventListener("click",function(event){
-        var spanstr=event.target.textContent;
-        data.splice(event.target.getAttribute("name"),1);
-        rend();
-        alert(spanstr);
 
-    })
+        printsptext.addEventListener("click",function(event){
+           if (event.target.nodeName.toLowerCase()=="span"){
+
+               var spanstr=event.target.textContent;
+               data.splice(event.target.getAttribute("name"),1);
+               rend();
+               alert(spanstr);
+           }
+
+
+
+        })
+
 };
 var init=function(){
     clickbutton();
