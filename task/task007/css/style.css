@@ -382,12 +382,13 @@ ul li a:hover {
 
 .world {
     height:100%;
-    display: flex;
-    justify-content: space-between;
+    width:100%;
+    float: left;
 }
 .world-l {
     background: url("../images/city.gif")no-repeat;
-    flex: 1 0 851px;
+    background-size: 100% 100%;
+    width:66.666%;
     height: 566px;
     float: left;
     display: flex;
@@ -423,7 +424,6 @@ ul li a:hover {
     align-items: center;
     align-content: center;
     text-align: center;
-    flex: 1 1 auto;
 }
 .world-r:before {
     content: '';
@@ -547,7 +547,7 @@ ul li a:hover {
     border-left-color: #ffffff;
     position: relative;
     top: -66px;;
-    right: -244px;;
+    right: -54%;
 }
 .new-times div:nth-of-type(1) hr{
         border-bottom: 2px solid #ffffff;
@@ -705,6 +705,7 @@ ul li a:hover {
 }
 
 footer {
+    width: 100%;
     height: 416px;
     display: flex;
     flex-flow: column;
@@ -712,6 +713,8 @@ footer {
     background: #33363f; ;
 }
 .div1 {
+    width:100%;
+
     height: 360px;;
 
 }
@@ -783,6 +786,7 @@ footer {
     height: 50px;
 }
 .div2 {
+    width:100%;
     height: 58px;
     line-height: 58px;
     display: flex;
@@ -795,4 +799,7 @@ footer {
     font-size: 12px;
     display: block;
     cursor: pointer;
+}
+.div2 span a {
+    color: #ffffff;
 }
