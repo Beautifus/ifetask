@@ -1,0 +1,40 @@
+
+*{
+  margin: 0;
+  padding:0;
+}
+div {
+  border: 1px solid #cccccc;
+  background: white;
+}
+%gg{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+#big{
+  width:800px;
+  height: 400px;
+  @extend %gg;
+  margin: 10px auto;
+  z-index: 0;
+  & .odiv1,.odiv2{
+    width: 300px;
+    height: 300px;
+    @extend %gg;
+    z-index: 1;
+  }
+}
+.idiv1,.idiv2,.idiv3,.idiv4 {
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+#btn {
+  text-align: center;
+  margin:10px auto;
+  input{
+    margin: 5px 20px;
+  }
+}
