@@ -178,6 +178,11 @@ nodetree.prototype={
         }else {
             alert("请选择需要删除的节点！")
         }
+    },
+    delcolor: function () {
+        for (var nodei=0;nodei<this.nodedata.length;nodei++){
+            this.nodedata[nodei].style.background="white"
+        }
     }
 
 };
@@ -196,10 +201,12 @@ $("btn").addEventListener("click", function (event) {
             case "btn1":
                 if (text.value==""){
                     btn.nodebl();
+                    btn.delcolor();
                     btn.wrapdiv();
                     btn.clear();
                 }else {
                     btn.nodebl();
+                    btn.delcolor();
                     btn.search(text.value);
                     btn.clear();
                 }
@@ -208,10 +215,12 @@ $("btn").addEventListener("click", function (event) {
             case "btn2":
                 if (text.value==""){
                     btn.nodesd();
+                    btn.delcolor();
                     btn.wrapdiv();
                     btn.clear();
                 }else {
                     btn.nodesd();
+                    btn.delcolor();
                     btn.search(text.value);
                     btn.clear();
                 }
@@ -220,10 +229,12 @@ $("btn").addEventListener("click", function (event) {
             case "btn3":
                 if (text.value==""){
                     btn.nodegd();
+                    btn.delcolor();
                     btn.wrapdiv();
                     btn.clear();
                 }else {
                     btn.nodegd();
+                    btn.delcolor();
                     btn.search(text.value);
                     btn.clear();
                 }
@@ -231,6 +242,7 @@ $("btn").addEventListener("click", function (event) {
                     break;
             case "add":
                 btn.nodegd();
+                btn.delcolor();
                 btn.add(text.value);
 
                 break;
