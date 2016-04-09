@@ -90,8 +90,10 @@ nodetree.prototype={
       this.nodedata=[];
       this.root=$("wrap");
       if (this.choselement){
-          this.choselement.style.border="1px solid #ccc";
+
+          delete this.choselement;
       }
+
     },
     search:function(dd) {
         var datas=this.nodedata;
@@ -173,9 +175,9 @@ nodetree.prototype={
         if (this.choselement&&this.choselement.id!="wrap"){
             this.choselement.parentNode.removeChild(this.choselement);
             delete this.choselement;
-        }else if(this.choselement.id=="wrap"){
+        }else if(this.choselement&&this.choselement.id=="wrap"){
             alert("不能删除根节点!")
-        }else {
+        }else if(!this.choselement){
             alert("请选择需要删除的节点！")
         }
     },
