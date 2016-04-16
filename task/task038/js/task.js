@@ -37,7 +37,6 @@ var wrap=$("wrap");
 function table(wrap,data){
     this.wrap=wrap;
     this.data=clone(data);
-    this.backdata=data;
 }
 table.prototype={
     init: function () {
@@ -92,7 +91,7 @@ table.prototype={
             if (b=="up"){
                 for (var i=0;i<lth;i++){
                     for (var j=0;j<lth;j++){
-                        if (sdata[a][i]<sdata[a][j]){
+                        if (Number(sdata[a][i])<Number(sdata[a][j])){
                             var temp=sdata[a][j];
                             sdata[a][j]=sdata[a][i];
                             sdata[a][i]=temp;
@@ -110,7 +109,7 @@ table.prototype={
             }else {
                 for (var i=0;i<lth;i++){
                     for (var j=0;j<lth;j++){
-                        if (sdata[a][i]>sdata[a][j]){
+                        if (Number(sdata[a][i])>Number(sdata[a][j])){
                             var temp=sdata[a][j];
                             sdata[a][j]=sdata[a][i];
                             sdata[a][i]=temp;
