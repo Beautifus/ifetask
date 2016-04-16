@@ -7,9 +7,6 @@ var $= function (id) {
     }else {
         return false
     }
-
-
-
 };
 var wrap=$("wrap");
 wrap.children[1].onclick= function () {
@@ -64,9 +61,7 @@ dialog.children[0].onmousedown=function(ev){
             dy=0;
         }else if (dy>(document.documentElement.clientHeight-dialog.offsetHeight)) {
             dy=document.documentElement.clientHeight-dialog.offsetHeight;
-
         }
-
         dialog.style.top=dy+"px";
         dialog.style.left=dx+"px";
         document.onmouseup= function () {
