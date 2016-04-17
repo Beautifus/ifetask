@@ -67,18 +67,20 @@ table.prototype={
                     tb.style.height=tb.children[1].clientHeight+50+"px";
                 }else if(document.body.scrollTop<tb.clientHeight||document.body.scrollTop>=tb.clientHeight){
                     tb.children[0].style.top=(tb.clientHeight+15-document.body.scrollTop)+"px";
+                    tb.children[0].style.position="fixed";
+                    tb.children[0].style.zIndex="6";
+                    tb.children[1].style.position="absolute";
+                    tb.children[1].style.top="37px";
+                    tb.style.height=tb.children[1].clientHeight+50+"px";
                 }
-
-                console.log(document.body.scrollTop+"|"+wrap.clientHeight);
-
-
-
             }else {
                 tb.children[0].style.position="relative";
                 tb.children[1].style.position="relative";
                 tb.style.height="auto";
             }
-        }
+        };
+        scroll(0,document.body.scrollTop-1);
+        scroll(0,document.body.scrollTop+1)
     },
     //排列数据
     sort: function (node,stat) {
@@ -106,7 +108,6 @@ table.prototype={
                 this.init();
                 break;
         }
-
         function sort(a,b){
             var lth=sdata[a].length;
             if (b=="up"){
@@ -148,6 +149,7 @@ table.prototype={
             }
             
         }
+
     }
 };
 var source=new table(wrap,data);
