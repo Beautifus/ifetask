@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task050问卷调查</title>
+    <link rel="" href="lib/jquery.min.js">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normal.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="lib/jquery.min.js"></script>
+</head>
+<body>
+<div class="all">
+    <nav class="header">
+        <div class="logo"><a href="#" class="fa fa-question-circle">调查问卷</a></div>
+        <div class="nav"><ul>
+            <li><a href="#">我的问卷</a></li>
+        </ul></div>
+    </nav>
+    <div class="contenair">
+       <div id="newtable">
+           <button>
+              <a href="new.html"> <span class="fa fa-plus">新建问卷</span></a>
+           </button>
+       </div>
+        <div id="table">
+          <div id="header">
+              <div class="title">标题</div>
+              <div class="time">时间</div>
+              <div class="stat">状态</div>
+              <div class="do">操作</div>
+              <div class="new"><a href="new.html"><span>+ 新建</span></a></div>
+          </div>
+            <div id="content">
+                <div>
+                    <ul id="ul">
+                        <!--<li><div><label for="listq1"><input id="listq1" type="radio">这是一个选项</label></div><div>123</div><div>123</div><div>-->
+                            <!--<span class="edit">编辑</span><span class="del">删除</span><span class="view">查看问卷</span></div></li>-->
+                    </ul>
+                </div>
+                <div id="ufoot">
+                    <form>
+                        <label for="choseall">
+                            <input type="checkbox" name="choseall" id="choseall">全选
+                        </label>
+                        <label for="delall"><input type="button" value="删除" id="delall"></label>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script src="js/data.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

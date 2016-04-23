@@ -1,0 +1,105 @@
+.contenair #new {
+  display: block;
+  width: 70%;
+  height: auto;
+  margin: 80px auto 0 auto;
+  padding: 0 10px;
+  background: white; }
+  .contenair #new #new-title {
+    height: auto;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    padding: 20px 0; }
+    .contenair #new #new-title input {
+      border: none;
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      text-align: center; }
+      .contenair #new #new-title input:hover {
+        background: #FCEFE6; }
+  .contenair #new #question {
+    height: auto;
+    margin-top: 20px; }
+    .contenair #new #question .question {
+      height: auto;
+      padding: 10px; }
+      .contenair #new #question .question:hover {
+        background: #FBEFE4; }
+      .contenair #new #question .question header span {
+        font-size: 1.1em;
+        margin-left: 10px; }
+      .contenair #new #question .question section ul {
+        list-style: none; }
+        .contenair #new #question .question section ul li label input {
+          margin: 0 10px; }
+      .contenair #new #question .question section div {
+        display: flex;
+        justify-content: flex-end; }
+        .contenair #new #question .question section div span {
+          margin: 0 10px; }
+  .contenair #new #new-question {
+    height: auto;
+    text-align: center;
+    line-height: 50px;
+    border-bottom: 2px solid #ccc;
+    padding: 30px 0; }
+    .contenair #new #new-question #questionclass span {
+      display: inline-block;
+      background: #dedede;
+      width: 100px;
+      height: 40px;
+      margin: 10px;
+      line-height: 40px;
+      cursor: pointer; }
+    .contenair #new #new-question #addquestion {
+      width: 100%;
+      height: 50px;
+      margin: 0 auto;
+      background: #dedede;
+      cursor: pointer; }
+  .contenair #new #new-date {
+    height: auto;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around; }
+    .contenair #new #new-date #date-ipt {
+      position: relative; }
+      .contenair #new #new-date #date-ipt label input {
+        width: 228px; }
+      .contenair #new #new-date #date-ipt #getdate {
+        position: absolute;
+        left: 112px;
+        width: 230px;
+        height: auto;
+        border: solid 1px #dedede; }
+        .contenair #new #new-date #date-ipt #getdate * {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+        .contenair #new #new-date #date-ipt #getdate #date-top {
+          width: 100%;
+          background: #ec7319;
+          padding: 10px; }
+          .contenair #new #new-date #date-ipt #getdate #date-top div {
+            display: flex;
+            justify-content: space-between; }
+            .contenair #new #new-date #date-ipt #getdate #date-top div span {
+              font-size: 14px;
+              color: #ffffff; }
+        .contenair #new #new-date #date-ipt #getdate #date-content {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          padding: 0 10px 5px 10px;
+          background: white; }
+          .contenair #new #new-date #date-ipt #getdate #date-content span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px; }
+        .contenair #new #new-date #date-ipt #getdate span {
+          cursor: pointer; }
+
+/*# sourceMappingURL=new.css.map */
