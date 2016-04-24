@@ -1,0 +1,149 @@
+//new页面
+.contenair{
+  #new{
+    display: block;
+    width: 70%;
+    height: auto;
+    margin:80px auto 0 auto;
+    padding: 0 10px;
+    background: white;
+    #new-title{
+      height: auto;
+      text-align: center;
+      border-bottom: 2px solid #ccc;
+      padding:20px 0;
+      input{
+        border:none;
+        display: inline-block;
+        width:100%;
+        height: 50px;
+        text-align: center;
+        &:hover{
+          background: #FCEFE6;
+        }
+      }
+    }
+    #question{
+      height:auto;
+      margin-top: 20px;
+      .question{
+        height:auto;
+        padding: 10px;
+        &:hover{
+          background: #FBEFE4;
+        }
+        header{
+          span{
+            font-size: 1.1em;
+            margin-left: 10px;
+          }
+        }
+        section{
+          ul{
+            list-style: none;
+            li{
+              label{
+                input{
+                  margin:0 10px;
+                }
+              }
+            }
+          }
+          div{
+            display: flex;
+            justify-content:flex-end;
+            span{
+              margin: 0 10px;
+            }
+          }
+        }
+
+      }
+    }
+    #new-question{
+      height:auto;
+      text-align: center;
+      line-height: 50px;
+      border-bottom: 2px solid #ccc;
+      padding:30px 0;
+      #questionclass{
+        span{
+          display: inline-block;
+          background: #dedede;
+          width:100px;
+          height: 40px;
+          margin: 10px;
+          line-height: 40px;
+          cursor: pointer;
+
+        }
+      }
+      #addquestion{
+        width:100%;
+        height: 50px;
+        margin:0 auto;
+        background: #dedede;
+        cursor: pointer;
+
+      }
+    }
+    #new-date{
+      height:auto;
+      padding:30px 0;
+      display: flex;
+      justify-content: space-around;
+      #date-ipt{
+        position: relative;
+        label{
+          input{
+            width: 228px;
+          }
+        }
+        #getdate{
+          *{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+          display: none;
+          position: absolute;
+          left: 112px;
+          width: 230px;
+          height: auto;
+          border: solid 1px #dedede;
+          #date-top{
+            width:100%;
+            background:#ec7319 ;
+            padding: 10px;
+            div{
+              display: flex;
+              justify-content: space-between;
+              span{
+                font-size: 14px;
+                color: #ffffff;
+              }
+            }
+          }
+          #date-content{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding:0 10px 5px 10px;
+            background: white;
+            span{
+              display: inline-block;
+              width:30px;
+              height: 30px;
+              text-align: center;
+              line-height: 30px;
+            }
+          }
+          span{
+            cursor: pointer;
+          }
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.contenair {
+  width: 100%; }
+  .contenair #newtable {
+    display: none;
+    background: white;
+    width: 70%;
+    height: 400px;
+    margin: 80px auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 9px 2px #cccccc; }
+    .contenair #newtable button {
+      margin: 0 auto;
+      display: inline-block;
+      background: #EC7319;
+      border: none;
+      width: 180px;
+      height: 60px;
+      box-shadow: 0 0 5px 1px #000000; }
+      .contenair #newtable button:hover {
+        box-shadow: 0 0 2px 2px #000000; }
+      .contenair #newtable button a {
+        text-decoration: none; }
+        .contenair #newtable button a span {
+          color: #ffffff; }
+          .contenair #newtable button a span:hover {
+            color: #ccc; }
+          .contenair #newtable button a span:visited {
+            color: #ffffff; }
+  .contenair #table {
+    display: none;
+    width: 70%;
+    height: auto;
+    margin: 80px auto 0 auto;
+    padding: 10px; }
+    .contenair #table #header {
+      background: #dedede;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      margin: 0 auto;
+      padding: 0 10px; }
+      .contenair #table #header .title {
+        flex: 3; }
+      .contenair #table #header .time {
+        flex: 2; }
+      .contenair #table #header .stat {
+        flex: 1; }
+      .contenair #table #header .do {
+        flex: 2; }
+      .contenair #table #header .new {
+        flex: 1; }
+        .contenair #table #header .new span {
+          display: block;
+          background: #EC7319;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          border-radius: 3px;
+          border: 1px solid #b5b5b5;
+          color: white;
+          font-weight: normal;
+          cursor: pointer; }
+    .contenair #table #content {
+      padding: 12px 0;
+      background: white;
+      margin: 0 auto; }
+      .contenair #table #content * {
+        padding: 0;
+        margin: 0; }
+      .contenair #table #content div #ul {
+        list-style: none;
+        padding: 0;
+        width: 100%; }
+        .contenair #table #content div #ul li {
+          height: 50px;
+          line-height: 50px;
+          margin: 5px 0;
+          padding: 0 20px;
+          width: calc(100% - 40px);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 5px;
+          border-bottom: 1px solid #cccccc; }
+          .contenair #table #content div #ul li:hover {
+            background: #FBEFE4; }
+          .contenair #table #content div #ul li div {
+            text-align: left;
+            height: 35px;
+            line-height: 35px; }
+            .contenair #table #content div #ul li div input {
+              margin-right: 10px; }
+          .contenair #table #content div #ul li div:nth-of-type(1) {
+            flex: 3; }
+          .contenair #table #content div #ul li div:nth-of-type(2) {
+            flex: 2; }
+          .contenair #table #content div #ul li div:nth-of-type(3) {
+            flex: 1; }
+          .contenair #table #content div #ul li div:nth-of-type(4) {
+            flex: 3;
+            display: flex;
+            justify-content: center; }
+            .contenair #table #content div #ul li div:nth-of-type(4) span {
+              display: inline-block;
+              width: 80px;
+              height: 35px;
+              line-height: 35px;
+              background: white;
+              border: 1px #cccccc solid;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              margin: 0 5px;
+              text-align: center;
+              border-radius: 3px;
+              cursor: pointer; }
+              .contenair #table #content div #ul li div:nth-of-type(4) span:hover {
+                background: #EC7319; }
+      .contenair #table #content #ufoot {
+        margin: 10px auto; }
+        .contenair #table #content #ufoot form {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0 20px; }
+          .contenair #table #content #ufoot form label {
+            font-size: 1.1em;
+            margin: 0 10px 0 0; }
+            .contenair #table #content #ufoot form label #delall {
+              width: 100px;
+              background: white;
+              border: 1px solid #dedede; }
+              .contenair #table #content #ufoot form label #delall:hover {
+                border: #cccccc 1px solid;
+                color: #7e7e7e;
+                background: #ec7319; }
+
+/*# sourceMappingURL=style.css.map */
