@@ -65,7 +65,7 @@ rl.prototype={
                 nodes[i].children[3].children[0].style.background="#fff";
                 nodes[i].children[3].children[0].style.color="#666";
                 console.log(this.chosedata);
-
+//存在bug
             }
         }else {
             for (var i=0;i<nodes.length;i++){
