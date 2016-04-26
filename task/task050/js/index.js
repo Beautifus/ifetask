@@ -61,7 +61,7 @@ rl.prototype={
             for (var i=0;i<nodes.length;i++){
                 this.chosenode=[];
                 this.chosedata=[];
-                $$("listq"+i).checked=false;
+                nodes[i].children[0].children[0].children[0].checked=false;
                 nodes[i].children[3].children[0].style.background="#fff";
                 nodes[i].children[3].children[0].style.color="#666";
                 console.log(this.chosedata);

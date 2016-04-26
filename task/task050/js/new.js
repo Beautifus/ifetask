@@ -208,23 +208,33 @@ content.addEventListener("click", function (e) {
 //以上程序未使用jquery！！-------------------------------------------------------------------------------
 //接下来用jquery放大招-----------------------------------------------------------------------------------
 $(".to-del").click(function () {
-    $(this).closest("div.question").remove();
-    setid();
+    $(this).closest("div.question").fadeOut(function () {
+        $(this).remove();
+        setid();
+    });
+
 });
 $(".to-top").click(function () {
     if ($(this).closest("div.question").prev().length!=0){
-        $(this).closest("div.question").prev().before($(this).closest("div.question").detach());
+        $(this).closest("div.question").fadeOut(function () {
+            $(this).prev().before($(this).detach());
+            $(this).fadeIn();
+            setid();
+        });
+        //$(this).closest("div.question").prev().before($(this).closest("div.question").detach());
     }
-    setid();
+
 });
 $(".to-bottom").click(function () {
-    if ($(this).closest("div.question").next("div.question").length!=0){
-        $(this).closest("div.question").next("div.question").after($(this).closest("div.question").detach());
-    }
-    setid();
+    $(this).closest("div.question").fadeOut(function () {
+        $(this).next().after($(this).detach());
+        $(this).fadeIn();
+        setid();
+    });
 });
 $(".to-copy").click(function () {
-    $(this).closest("div.question").after($(this).closest("div.question").clone(true));
+    $(this).closest("div.question").after($(this).closest("div.question").clone(true).css("display","none"));
+    $(this).closest("div.question").next().fadeIn();
     setid();
 
 });
@@ -232,8 +242,24 @@ function setid(){
     var questions=$("#question div.question");
     for (var i=0;i<=questions.length;i++){
         var num=Number(i)+1;
-        $(questions.eq(i)).children("header").children(":eq(0)").html("Q"+num);
+        $(questions.eq(i)).find("header").children(":eq(0)").html("Q"+num);
         $(questions.eq(i)).find("header>span>label").attr("for","q"+num);
         $(questions.eq(i)).find("header>span>label>input").attr("id","q"+num);
+        $(questions.eq(i)).find("section").attr("id","q"+num+"-content");
     }
 }
+$("#addquestion").click(function () {
+    $("#questionclass").fadeIn()
+});
+$("#radius").click(function () {
+    $("#question").append($("div.question1").clone(true).attr("class","question").fadeIn());
+    setid();
+});
+$("#checkbox").click(function () {
+    $("#question").append($("div.question2").clone(true).attr("class","question").fadeIn());
+    setid();
+});
+$("#text").click(function () {
+    $("#question").append($("div.question3").clone(true).attr("class","question").fadeIn());
+    setid();
+});
