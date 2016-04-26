@@ -26,25 +26,64 @@
     #question{
       height:auto;
       margin-top: 20px;
+      .question1{
+        display: none;}
+      .question2{
+        display: none;}
+      .question3{
+        display: none;}
       .question{
         height:auto;
         padding: 10px;
+        .to-top{
+          cursor: pointer;
+        }
+        .to-bottom{
+          cursor: pointer;
+        }
+        .to-copy{
+          cursor: pointer;
+        }
+        .to-del{
+          cursor: pointer;
+        }
         &:hover{
           background: #FBEFE4;
+          input{
+            background: #FBEFE4;
+          }
         }
         header{
           span{
             font-size: 1.1em;
             margin-left: 10px;
+            input{
+              border:none;
+            }
+          }
+          span:nth-of-type(3){
+            float: right;
           }
         }
         section{
+          &>label{
+            padding-left:40px;
+            textarea{
+              width:500px;
+              height: 200px;
+              margin: 16px 0;
+            }
+          }
           ul{
             list-style: none;
             li{
               label{
                 input{
                   margin:0 10px;
+                  border:none;
+                }
+                input:nth-of-type(2){
+                  width:60%;
                 }
               }
             }
@@ -67,6 +106,7 @@
       border-bottom: 2px solid #ccc;
       padding:30px 0;
       #questionclass{
+        display: none;
         span{
           display: inline-block;
           background: #dedede;

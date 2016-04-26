@@ -1,10 +1,10 @@
 /**
  * Created by joker on 16-4-18.
  */
-
+//本程序未使用jquery！！
 //初始化
-var table=$("table");
-var newtable=$("newtable");
+var table=$$("table");
+var newtable=$$("newtable");
 if(data.length<=0){
     newtable.style.display="flex";
     table.style.display="none"
@@ -21,16 +21,16 @@ function rl(data){
 rl.prototype={
   init: function () {
       for (var i=0;i<this.data.length;i++){
-          var li=$$("li");
+          var li=$$$("li");
           li.innerHTML="<div><label for=\"listq"+i+"\"><input name='listq' id=\"listq"+i+"\" type=\"checkbox\">"+this.data[i].title+"</label></div><div>"+this.data[i].times+"</div><div>"+this.data[i].stat+"</div><div><span class=\"edit\">编辑</span><span class=\"del\">删除</span><span class=\"view\">查看问卷</span></div>";
-          $("ul").appendChild(li);
+          $$("ul").appendChild(li);
       }
   },
     check_chose: function (e) {
         this.chosedata=[];
         this.chosenode=[];
         //alert(e.checked);
-        var li=$("ul").querySelectorAll("li");
+        var li=$$("ul").querySelectorAll("li");
         var step=0;
         for (var i=0;i<li.length;i++){
             if (li[i].children[0].children[0].children[0].checked==true){
@@ -45,9 +45,9 @@ rl.prototype={
             }
         }
         if (step==0){
-            $("choseall").checked=false;
+            $$("choseall").checked=false;
         }else if(step==li.length){
-            $("choseall").checked=true;
+            $$("choseall").checked=true;
 
         }
         console.log(this.chosedata);
@@ -56,22 +56,21 @@ rl.prototype={
     choseall: function () {
         this.chosenode=[];
         this.chosedata=[];
-        var nodes=$("ul").querySelectorAll("li");
-        if ($("choseall").checked==false){
+        var nodes=$$("ul").querySelectorAll("li");
+        if ($$("choseall").checked==false){
             for (var i=0;i<nodes.length;i++){
                 this.chosenode=[];
                 this.chosedata=[];
-                $("listq"+i).checked=false;
+                nodes[i].children[0].children[0].children[0].checked=false;
                 nodes[i].children[3].children[0].style.background="#fff";
                 nodes[i].children[3].children[0].style.color="#666";
                 console.log(this.chosedata);
-//存在bug
             }
         }else {
             for (var i=0;i<nodes.length;i++){
                 this.chosenode[i]=nodes[i];
                 this.chosedata[i]=this.data[i];
-                $("listq"+i).checked=true;
+                nodes[i].children[0].children[0].children[0].checked=true;
                 nodes[i].children[3].children[0].style.background="#ec7319";
                 nodes[i].children[3].children[0].style.color="white";
                 console.log(this.chosedata)
@@ -79,7 +78,7 @@ rl.prototype={
         }
     },
     del: function (e) {
-        var li=$("ul").querySelectorAll("li");
+        var li=$$("ul").querySelectorAll("li");
         for (var i=0;i<li.length;i++){
             if (e.parentElement.parentElement===li[i]){
                 li[i].parentElement.removeChild(li[i]);
@@ -92,9 +91,14 @@ rl.prototype={
     del_all: function () {
         if (this.chosedata.length>0){
             for (var i=this.chosedata.length-1;i>=0;i--){
+                for (var j=0;j<this.data.length;j++){
+                    if (this.chosedata[i]==this.data[j]){
+                        this.data.splice(j,1)
+                    }
+                }
                 this.chosedata.splice(i,1);
-                $("ul").removeChild(this.chosenode[i]);
-                delete this.chosenode.splice(i,1);
+                $$("ul").removeChild(this.chosenode[i]);
+                this.chosenode.splice(i,1);
 
             }
             console.log(this.chosedata+"|||"+this.chosenode);
@@ -107,14 +111,14 @@ rl.prototype={
 var initd=new rl(data);
 
 initd.init();
-$("choseall").onclick= function () {
+$$("choseall").onclick= function () {
     initd.choseall();
     initd.check_chose()
 };
-$("delall").onclick=function(){
+$$("delall").onclick=function(){
     initd.del_all()
 };
-$("ul").addEventListener("click", function (ev) {
+$$("ul").addEventListener("click", function (ev) {
     var oevent=ev||event;
     if (oevent.target.nodeName.toLowerCase()=="input"){
         initd.check_chose(oevent.target)
