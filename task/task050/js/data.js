@@ -36,14 +36,14 @@ var data=[
 //获取节点
 
 //选择器
-function $(id){
+function $$(id){
     if (document.getElementById(id)){
         return document.getElementById(id);
     }else return false
 }
 
 //创建器
-function $$(ele){
+function $$$(ele){
     return document.createElement(ele);
 }
 //创建通用函数

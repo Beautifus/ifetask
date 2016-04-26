@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/normal.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/new.css">
+    <script src="lib/jquery.min.js"></script>
 </head>
 <body>
 <div class="all">
@@ -20,19 +21,41 @@
 <div class="contenair">
     <div id="new">
         <div id="new-title">
-            <input type="text" value="这是一个标题">
+            <label for="title"><input id="title" type="text" value="这是一个标题"></label>
         </div>
         <div id="question">
             <div class="question">
-                <header><span>Q1</span><span>这是第一个问题</span></header>
-                <section id="q1">
+                <header><span>Q1</span><span><label for="q1"><input type="text" id="q1" value="这是一个问题"></label></span></header>
+                <section id="q1-content">
                     <ul>
-                        <li><label for="a1-1"><input name="a1" id="a1-1" type="radio">第一个答案</label></li>
-                        <li><label for="a1-2"><input name="a1" id="a1-2" type="radio">第二个答案</label></li>
-                        <li><label for="a1-3"><input name="a1" id="a1-3" type="radio">第三个答案</label></li>
-                        <li><label for="a1-4"><input name="a1" id="a1-4" type="radio">第四个答案</label></li>
+                        <li><label ><input name="a1"  type="radio"></label><label for="a1-1"><input id="a1-1" type="text" value="第一个答案"></label></li>
+                        <li><label ><input name="a1"  type="radio"></label><label for="a1-2"><input id="a1-2" type="text" value="第二个答案"></label></li>
+                        <li><label ><input name="a1"  type="radio"></label><label for="a1-3"><input id="a1-3" type="text" value="第三个答案"></label></li>
+                        <li><label ><input name="a1"  type="radio"></label><label for="a1-4"><input id="a1-4" type="text" value="第四个答案"></label></li>
                     </ul>
-                    <div><span>上移</span><span>下移</span><span>复用</span><span>删除</span></div>
+                    <div><span class="to-top">上移</span><span class="to-bottom">下移</span><span class="to-copy">复用</span><span class="to-del">删除</span></div>
+                </section>
+            </div>
+            <div class="question">
+                <header><span>Q2</span><span><label for="q2"><input type="text" id="q2" value="这是一个问题"></label></span></header>
+                <section id="q2-content">
+                    <ul>
+                        <li><label ><input name="a2"  type="checkbox"></label><label for="a2-1"><input id="a2-1" type="text" value="第一个答案"></label></li>
+                        <li><label ><input name="a2"  type="checkbox"></label><label for="a2-2"><input id="a2-2" type="text" value="第二个答案"></label></li>
+                        <li><label ><input name="a2"  type="checkbox"></label><label for="a2-3"><input id="a2-3" type="text" value="第三个答案"></label></li>
+                        <li><label ><input name="a2"  type="checkbox"></label><label for="a2-4"><input id="a2-4" type="text" value="第四个答案"></label></li>
+                    </ul>
+                    <div><span class="to-top">上移</span><span class="to-bottom">下移</span><span class="to-copy">复用</span><span class="to-del">删除</span></div>
+                </section>
+            </div>
+            <div class="question">
+                <header><span>Q3</span><span><label for="q3"><input type="text" id="q3" value="这是一个问题"></label></span><span><label
+                        for="requir"><input type="checkbox" id="requir">是否必答</label></span></header>
+                <section id="q3-content">
+                    <label for="a3">
+                        <textarea name="a3" id="a3" cols="30" rows="10"></textarea>
+                    </label>
+                    <div><span class="to-top">上移</span><span class="to-bottom">下移</span><span class="to-copy">复用</span><span class="to-del">删除</span></div>
                 </section>
             </div>
         </div>
@@ -116,6 +139,6 @@
     </div>
 </div>
 <script src="js/data.js"></script>
-<script src="js/calendar.js"></script>
+<script src="js/new.js"></script>
 </body>
 </html>

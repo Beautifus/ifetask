@@ -24,15 +24,38 @@
     .contenair #new #question .question {
       height: auto;
       padding: 10px; }
+      .contenair #new #question .question .to-top {
+        cursor: pointer; }
+      .contenair #new #question .question .to-bottom {
+        cursor: pointer; }
+      .contenair #new #question .question .to-copy {
+        cursor: pointer; }
+      .contenair #new #question .question .to-del {
+        cursor: pointer; }
       .contenair #new #question .question:hover {
         background: #FBEFE4; }
+        .contenair #new #question .question:hover input {
+          background: #FBEFE4; }
       .contenair #new #question .question header span {
         font-size: 1.1em;
         margin-left: 10px; }
+        .contenair #new #question .question header span input {
+          border: none; }
+      .contenair #new #question .question header span:nth-of-type(3) {
+        float: right; }
+      .contenair #new #question .question section > label {
+        padding-left: 40px; }
+        .contenair #new #question .question section > label textarea {
+          width: 500px;
+          height: 200px;
+          margin: 16px 0; }
       .contenair #new #question .question section ul {
         list-style: none; }
         .contenair #new #question .question section ul li label input {
-          margin: 0 10px; }
+          margin: 0 10px;
+          border: none; }
+        .contenair #new #question .question section ul li label input:nth-of-type(2) {
+          width: 60%; }
       .contenair #new #question .question section div {
         display: flex;
         justify-content: flex-end; }
