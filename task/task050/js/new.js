@@ -226,11 +226,14 @@ $(".to-top").click(function () {
 
 });
 $(".to-bottom").click(function () {
-    $(this).closest("div.question").fadeOut(function () {
-        $(this).next().after($(this).detach());
-        $(this).fadeIn();
-        setid();
-    });
+    if ($(this).closest("div.question").next().length!=0){
+        $(this).closest("div.question").fadeOut(function () {
+            $(this).next().after($(this).detach());
+            $(this).fadeIn();
+            setid();
+        });
+    }
+
 });
 $(".to-copy").click(function () {
     $(this).closest("div.question").after($(this).closest("div.question").clone(true).css("display","none"));
