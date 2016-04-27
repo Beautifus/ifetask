@@ -215,7 +215,7 @@ $(".to-del").click(function () {
 
 });
 $(".to-top").click(function () {
-    if ($(this).closest("div.question").prev().length!=0){
+    if ($(this).closest("div.question").prev("div.question").length!=0){
         $(this).closest("div.question").fadeOut(function () {
             $(this).prev().before($(this).detach());
             $(this).fadeIn();
@@ -226,7 +226,7 @@ $(".to-top").click(function () {
 
 });
 $(".to-bottom").click(function () {
-    if ($(this).closest("div.question").next().length!=0){
+    if ($(this).closest("div.question").next("div.question").length!=0){
         $(this).closest("div.question").fadeOut(function () {
             $(this).next().after($(this).detach());
             $(this).fadeIn();
@@ -243,12 +243,23 @@ $(".to-copy").click(function () {
 });
 function setid(){
     var questions=$("#question div.question");
-    for (var i=0;i<=questions.length;i++){
+    for (var i=0;i<questions.length;i++){
         var num=Number(i)+1;
         $(questions.eq(i)).find("header").children(":eq(0)").html("Q"+num);
         $(questions.eq(i)).find("header>span>label").attr("for","q"+num);
         $(questions.eq(i)).find("header>span>label>input").attr("id","q"+num);
         $(questions.eq(i)).find("section").attr("id","q"+num+"-content");
+        if ($(questions.eq(i)).find("section>label>textarea").length>0){
+            $(questions.eq(i)).find("section>label").attr("for","a"+num);
+            $(questions.eq(i)).find("section>label>textarea").attr("id","a"+num);
+        }else {
+            for (var j=0;j<$(questions.eq(i)).find("ul").length;j++){
+                $(questions.eq(i)).find("section>ul>li>label:nth-of-type(1)>input").attr("name","a"+num);
+                $(questions.eq(i)).find("section>ul>li>label:nth-of-type(2)").attr("for","a"+num+"-"+j);
+                $(questions.eq(i)).find("section>ul>li>label:nth-of-type(2)>input").attr("id","a"+num+"-"+j);
+            }
+
+        }
     }
 }
 $("#addquestion").click(function () {
