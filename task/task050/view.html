@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view</title>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normal.css">
+    <link rel="stylesheet" href="css/view.css">
+    <script src="lib/jquery.min.js"></script>
+</head>
+<body>
+<div class="all">
+    <nav class="header">
+        <div class="logo"><a href="index.html" class="fa fa-question-circle">调查问卷</a></div>
+        <div class="nav"><ul>
+            <li><a href="index.html">我的问卷</a></li>
+        </ul></div>
+    </nav>
+    <div class="contenair">
+        <div class="contenair-header">
+            <span id="return" class="fa fa-arrow-left">返回</span>
+            <div>
+                <span id="title"><h3>这里是标题</h3></span>
+                <span>此统计只包含完整回收数据</span>
+            </div>
+        </div>
+        <div id="content">
+            <div class="question-list1">
+                <!--单项选择模板-->
+                <div class="left">
+                    <header><span>Q1</span><span>题目一</span></header>
+                    <section>
+                        <ol>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                        </ol>
+                    </section>
+                </div>
+                <div class="right">
+                    <header><span>数据对比</span></header>
+                    <section>
+                        <ul>
+                            <li><div><span></span></div><span>100%</span></li>
+                            <li><div><span></span></div><span>100%</span></li>
+                            <li><div><span></span></div><span>100%</span></li>
+                            <li><div><span></span></div><span>100%</span></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div class="question-list2">
+                <!--文本提模板-->
+                <div class="left">
+                    <header><span>Q1</span><span>题目2</span></header>
+                    <section>
+
+                    </section>
+                </div>
+                <div class="right">
+                    <header><span>有效回答占比</span></header>
+                    <section>
+                        <ul>
+                            <li><div><span></span></div><span>100%</span></li>
+                        </ul>
+                    </section>
+                </div>
+
+            </div>
+            <div class="question-list3">
+                <!--多选提模板-->
+                <div class="left">
+                    <header><span>Q1</span><span>题目一</span></header>
+                    <section>
+                        <ol>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                            <li>这是答案</li>
+                        </ol>
+                    </section>
+                </div>
+                <div class="right">
+                    <header><span>数据对比</span></header>
+                    <section>
+                        <canvas width="300px" height="150px" id="can1">
+                        </canvas>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/view.js"></script>
+</body>
+</html>

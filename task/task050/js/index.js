@@ -78,31 +78,38 @@ rl.prototype={
         }
     },
     del: function (e) {
-        var li=$$("ul").querySelectorAll("li");
-        for (var i=0;i<li.length;i++){
-            if (e.parentElement.parentElement===li[i]){
-                li[i].parentElement.removeChild(li[i]);
-                this.data.splice(i,1);
-                console.log(this.data);
-                console.log(this.data.length);
+        if (tc("确定删除该项？")){
+            var li=$$("ul").querySelectorAll("li");
+            for (var i=0;i<li.length;i++){
+                if (e.parentElement.parentElement===li[i]){
+                    li[i].parentElement.removeChild(li[i]);
+                    this.data.splice(i,1);
+                    console.log(this.data);
+                    console.log(this.data.length);
+                }
             }
         }
+
     },
     del_all: function () {
         if (this.chosedata.length>0){
-            for (var i=this.chosedata.length-1;i>=0;i--){
-                for (var j=0;j<this.data.length;j++){
-                    if (this.chosedata[i]==this.data[j]){
-                        this.data.splice(j,1)
+            if (tc("确定删除选择项？")){
+                for (var i=this.chosedata.length-1;i>=0;i--){
+                    for (var j=0;j<this.data.length;j++){
+                        if (this.chosedata[i]==this.data[j]){
+                            this.data.splice(j,1)
+                        }
                     }
-                }
-                this.chosedata.splice(i,1);
-                $$("ul").removeChild(this.chosenode[i]);
-                this.chosenode.splice(i,1);
+                    this.chosedata.splice(i,1);
+                    $$("ul").removeChild(this.chosenode[i]);
+                    this.chosenode.splice(i,1);
 
+                }
             }
+
             console.log(this.chosedata+"|||"+this.chosenode);
             console.log(this.chosedata.length+"|||"+this.chosenode.length);
+
         }
 
     }
@@ -116,7 +123,7 @@ $$("choseall").onclick= function () {
     initd.check_chose()
 };
 $$("delall").onclick=function(){
-    initd.del_all()
+        initd.del_all()
 };
 $$("ul").addEventListener("click", function (ev) {
     var oevent=ev||event;
