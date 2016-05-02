@@ -5,7 +5,17 @@ var data=[
     {
         title:"第一个问卷",
         times:"2016/04/19",
-        stat:"发表中"
+        stat:"发表中",
+        questions:[
+            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+            {typle:"text",text:"你是男是女？",per:[5,10]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+
+        ]
+
     },
     {
         title:"第二个问卷",
@@ -87,3 +97,37 @@ var startmove= function (nodes,attr,value) {
         }
     },30);
 };
+//创建弹窗
+function tc(a) {
+    if ($$("zz")){
+        $$("zz").style.display="block";
+        if (confirm(a)){
+            $$("zz").style.display="none";
+            return true;
+        }else {
+            $$("zz").style.display="none";
+            return false;
+        }
+
+    }else {
+        var zz=document.createElement("div");
+        zz.style.width="100%";
+        zz.style.height="100%";
+        zz.style.background="#ccc";
+        zz.style.opacity="0.5";
+        zz.style.zIndex="10";
+        zz.style.position="absolute";
+        zz.style.left="0";
+        zz.style.top=window.document.body.scrollTop;
+        zz.setAttribute("id","zz");
+        document.body.appendChild(zz);
+        if (confirm(a)){
+            $$("zz").style.display="none";
+            return true;
+        }else {
+            $$("zz").style.display="none";
+            return false;
+        }
+
+    }
+}

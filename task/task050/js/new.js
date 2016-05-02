@@ -60,8 +60,7 @@ calendar.prototype={
             var node2=document.createElement("span");
             if (date1.getTime()==date2.getTime()){
                 console.log(date1.getTime()+"---"+date2.getTime());
-
-                node2.style.background="#ec7319";
+                node2.style.background="#ECB362";
                 node2.style.color="#fff";
                 node2.innerHTML=step1++;
                 content.appendChild(node2);
@@ -107,9 +106,9 @@ calendar.prototype={
             a.style.background="#ec7319";
             a.style.color="white";
             if (_date1.getTime()<=_date2.getTime()){
-                $$("date").value=this.chose_date[0].year+"/"+this.chose_date[0].month+"/"+this.chose_date[0].day+"--"+this.chose_date[1].year+"/"+this.chose_date[1].month+"/"+this.chose_date[1].day
+                $$("date").value=this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day+"--"+this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day
             }else {
-                $$("date").value=this.chose_date[1].year+"/"+this.chose_date[1].month+"/"+this.chose_date[1].day+"--"+this.chose_date[0].year+"/"+this.chose_date[0].month+"/"+this.chose_date[0].day
+                $$("date").value=this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day+"--"+this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day
 
             }
             //FD7B75
@@ -276,4 +275,18 @@ $("#checkbox").click(function () {
 $("#text").click(function () {
     $("#question").append($("div.question3").clone(true).attr("class","question").fadeIn());
     setid();
+});
+$("#question-btn button:nth-of-type(1)").click(function () {
+    if (tc("确定保存？")){
+
+    }else {
+
+    }
+});
+$("#question-btn button:nth-of-type(2)").click(function () {
+    if (tc("确定发表？")){
+
+    }else {
+
+    }
 });
