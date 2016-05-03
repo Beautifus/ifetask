@@ -22,11 +22,23 @@ rl.prototype={
   init: function () {
       for (var i=0;i<this.data.length;i++){
           var li=$$$("li");
-          li.innerHTML="<div><label for=\"listq"+i+"\"><input name='listq' id=\"listq"+i+"\" type=\"checkbox\">"+this.data[i].title+"</label></div><div>"+this.data[i].times+"</div><div>"+this.data[i].stat+"</div><div><span class=\"edit\">编辑</span><span class=\"del\">删除</span><span class=\"view\">查看问卷</span></div>";
+          var stat;
+          var color;
+          if (data[i].stat=="0"){
+              stat="发表中";
+              color="red"
+          }else if (data[i].stat=="1"){
+              stat="未发表";
+              color=""
+          }else {
+              stat="已过期";
+              color="#ccc"
+          }
+          li.innerHTML="<div><label for=\"listq"+i+"\"><input name='listq' id=\"listq"+i+"\" type=\"checkbox\">"+this.data[i].title+"</label></div><div>"+this.data[i].times+"</div><div style='color: "+color+";'>"+stat+"</div><div><span class=\"edit\">编辑</span><span class=\"del\">删除</span><span class=\"view\">查看问卷</span></div>";
           $$("ul").appendChild(li);
       }
   },
-    check_chose: function (e) {
+    check_chose: function () {
         this.chosedata=[];
         this.chosenode=[];
         //alert(e.checked);
@@ -82,10 +94,15 @@ rl.prototype={
             var li=$$("ul").querySelectorAll("li");
             for (var i=0;i<li.length;i++){
                 if (e.parentElement.parentElement===li[i]){
-                    li[i].parentElement.removeChild(li[i]);
-                    this.data.splice(i,1);
-                    console.log(this.data);
-                    console.log(this.data.length);
+                    if (this.data[i].stat!="0"&&this.chosedata[i].stat!="2"){
+                        li[i].parentElement.removeChild(li[i]);
+                        this.data.splice(i,1);
+                        console.log(this.data);
+                        console.log(this.data.length);
+                    }else {
+                        alert("不能删除已发表或者过期问卷")
+                    }
+
                 }
             }
         }
@@ -95,14 +112,17 @@ rl.prototype={
         if (this.chosedata.length>0){
             if (tc("确定删除选择项？")){
                 for (var i=this.chosedata.length-1;i>=0;i--){
-                    for (var j=0;j<this.data.length;j++){
-                        if (this.chosedata[i]==this.data[j]){
-                            this.data.splice(j,1)
+                    if (this.chosedata[i].stat!="0"&&this.chosedata[i].stat!="2"){
+                        for (var j=0;j<this.data.length;j++){
+                            if (this.chosedata[i]==this.data[j]){
+                                this.data.splice(j,1)
+                            }
                         }
+                        this.chosedata.splice(i,1);
+                        $$("ul").removeChild(this.chosenode[i]);
+                        this.chosenode.splice(i,1);
                     }
-                    this.chosedata.splice(i,1);
-                    $$("ul").removeChild(this.chosenode[i]);
-                    this.chosenode.splice(i,1);
+
 
                 }
             }
@@ -133,4 +153,23 @@ $$("ul").addEventListener("click", function (ev) {
         initd.del(oevent.target)
     }
 });
+//jquery扩展
+$("#ul").find(".view").on("click", function (e) {
+    for (var i=0;i<$("#ul li").length;i++){
+        if ($("#ul li").eq(i).html()==e.target.closest("li").innerHTML){
+            storage.index=i;
+            location.href="view.html"
+        }
+    }
 
+});
+$("#ul").find(".edit").on("click", function (e) {
+    for (var i=0;i<$("#ul li").length;i++){
+        if ($("#ul li").eq(i).html()==e.target.closest("li").innerHTML){
+            storage.new="edit";
+            storage.index=i;
+            location.href="new.html"
+        }
+    }
+
+});

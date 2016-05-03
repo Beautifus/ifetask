@@ -1,11 +1,15 @@
 /**
  * Created by joker on 16-4-18.
  */
+var storage=window.localStorage;
 var data=[
     {
         title:"第一个问卷",
         times:"2016/04/19",
-        stat:"发表中",
+        stat:"0",
+        //0:发表中
+        //1：未发表
+        //2：已过期
         questions:[
             {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
             {typle:"text",text:"你是男是女？",per:[5,10]},
@@ -18,29 +22,22 @@ var data=[
 
     },
     {
-        title:"第二个问卷",
+        title:"第一个问卷",
         times:"2016/04/19",
-        stat:"发表中"
-    },
-    {
-        title:"第三个问卷",
-        times:"2016/04/19",
-        stat:"未发表"
-    },
-    {
-        title:"第四个问卷",
-        times:"2016/04/19",
-        stat:"未发表"
-    },
-    {
-        title:"第五个问卷",
-        times:"2016/04/19",
-        stat:"未发表"
-    },
-    {
-        title:"第六个问卷",
-        times:"2016/04/19",
-        stat:"未发表"
+        stat:"0",
+        //0:发表中
+        //1：未发表
+        //2：已过期
+        questions:[
+            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+            {typle:"text",text:"nnishiyigegui？",per:[5,10]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+
+        ]
+
     }
 ];
 //获取节点
