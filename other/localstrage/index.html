@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">这是一个按钮</button>
+<div id="text"></div>
+<script>
+    var storage=window.localStorage;
+    window.onload =function () {
+        if (window.localStorage){
+            document.getElementById("btn").onclick= function () {
+                storage["keys"]=Number(storage["keys"])+1;
+                document.getElementById("text").innerHTML= window.localStorage.keys;
+            }
+        }else {
+            alert("不支持localstorage")
+        }
+    }
+</script>
+</body>
+</html>

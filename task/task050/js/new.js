@@ -290,3 +290,28 @@ $("#question-btn button:nth-of-type(2)").click(function () {
 
     }
 });
+$(window).ready(function () {
+    if (storage.new=="edit"){
+        for(var i=0;i<data[storage.index].questions.length;i++){
+            if (data[storage.index].questions[i].typle=="radius"){
+                $("#radius").click();
+                $(".question").eq(i).find("header input").val(data[storage.index].questions[i].text);
+                for (var j=0;j<data[storage.index].questions[i].option.length;j++){
+                    $(".question section").eq(i).find("input[type=text]").eq(j).val(data[storage.index].questions[i].option[j])
+                }
+            }else if (data[storage.index].questions[i].typle=="text"){
+                $("#text").click();
+                $(".question").eq(i).find("header input").val(data[storage.index].questions[i].text);
+            }else if (data[storage.index].questions[i].typle=="checkbox"){
+                $("#checkbox").click();
+                $(".question").eq(i).find("header input").val(data[storage.index].questions[i].text);
+                for (var j=0;j<data[storage.index].questions[i].option.length;j++){
+                    $(".question section").eq(i).find("input[type=text]").eq(j).val(data[storage.index].questions[i].option[j]);
+                }
+
+            }
+        }
+        $("#date").val(data[storage.index].times)
+    }
+});
+
