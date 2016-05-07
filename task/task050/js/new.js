@@ -403,94 +403,108 @@ $(window).ready(function () {
             }
 
         })
-    }else {
+    }else if(storage.new=="new") {
+        var newdata={};
+        var length=data.length;
         $("#question-btn button").eq(0).click(function () {
             if (tc("是否保存？")){
-                delete date[storage.index]
+                newdata={};
+                newdata.questions=[];
                 var q_data=$(".question");
-                data[storage.index].title=$("#title").val();
-                data[storage.index].times=$("#date").val();
+                newdata.title=$("#title").val();
+                newdata.times=$("#date").val();
                 for (var i=0;i<q_data.length;i++){
                     if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="radius";
+                        newdata.questions[i].typle="radius";
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                        newdata.questions[i].text=$(tid).val();
+                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                            if (!newdata.questions[i].option){
+                                newdata.questions[i].option=[];
+                            }
+                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
                         }
 
                     }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="checkbox"
+                        newdata.questions[i].typle="checkbox"
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                        newdata.questions[i].text=$(tid).val();
+                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                            if (!newdata.questions[i].option){
+                                newdata.questions[i].option=[];
+                            }
+                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
 
                         }
                     }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="text";
+                        newdata.questions[i].typle="text";
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
+                        newdata.questions[i].text=$(tid).val();
                     }
 
                 }
-                console.log(data[storage.index])
+                console.log(newdata)
+                data[length]=newdata;
                 changdata(1)
                 location.href="index.html"
+
             }
 
         })
         $("#question-btn button").eq(1).click(function () {
             if (tc("是否发表？")){
-                delete date[storage.index]
+                newdata={};
+                newdata.questions=[];
                 var q_data=$(".question");
-                data[storage.index].title=$("#title").val();
-                data[storage.index].times=$("#date").val();
+                newdata.title=$("#title").val();
+                newdata.times=$("#date").val();
                 for (var i=0;i<q_data.length;i++){
                     if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="radius";
+                        newdata.questions[i].typle="radius";
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                        newdata.questions[i].text=$(tid).val();
+                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
                         }
 
                     }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="checkbox"
+                        newdata.questions[i].typle="checkbox"
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                        newdata.questions[i].text=$(tid).val();
+                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
 
                         }
                     }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
+                        if (!newdata.questions[i]){
+                            newdata.questions[i]={};
                         }
-                        data[storage.index].questions[i].typle="text";
+                        newdata.questions[i].typle="text";
                         var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
+                        newdata.questions[i].text=$(tid).val();
                     }
 
                 }
-                data[storage.index].stat="0"
-                changdata(1)
+                newdata.stat="0"
+                data[length]=newdata;
+                changdata(1);
                 location.href="index.html"
+
             }
 
         })
