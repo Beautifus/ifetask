@@ -22,9 +22,9 @@ var data=[
 
     },
     {
-        title:"第一个问卷",
+        title:"第N个问卷",
         times:"2016/04/19",
-        stat:"0",
+        stat:"1",
         //0:发表中
         //1：未发表
         //2：已过期
@@ -38,9 +38,52 @@ var data=[
 
         ]
 
-    }
+    },
+    {
+        title:"第NN个问卷",
+        times:"2016/04/19",
+        stat:"2",
+        //0:发表中
+        //1：未发表
+        //2：已过期
+        questions:[
+            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+            {typle:"text",text:"nnishiyigegui？",per:[5,10]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+
+        ]
+
+    },
+
 ];
-//获取节点
+//按下z键清除storage
+console.log("按下Z键可以清空localstorage")
+if (!storage.a){
+    alert("按下z键清除storage");
+    storage.a="-1"
+}
+document.onkeydown= function (event) {
+    var e=event||window.event;
+    if (e.keyCode==90){
+        storage.clear();
+    }
+}
+//处理数据转换
+changdata(0);
+function changdata(a){
+    //0:将storage转换成data
+    //1：将data转换成storage
+    if (a==0&&storage.questions){
+        data=JSON.parse(storage.questions);
+    }else if (a==1){
+        storage.questions=JSON.stringify(data);
+    }
+    console.log(data);
+    console.log(storage.questions);
+}
 
 //选择器
 function $$(id){
@@ -96,13 +139,13 @@ var startmove= function (nodes,attr,value) {
 };
 //创建弹窗
 function tc(a) {
-    if ($$("zz")){
-        $$("zz").style.display="block";
+    if (document.getElementById("zz")){
+        document.getElementById("zz").style.display="block";
         if (confirm(a)){
-            $$("zz").style.display="none";
+            document.getElementById("zz").style.display="none";
             return true;
         }else {
-            $$("zz").style.display="none";
+            document.getElementById("zz").style.display="none";
             return false;
         }
 
@@ -119,10 +162,10 @@ function tc(a) {
         zz.setAttribute("id","zz");
         document.body.appendChild(zz);
         if (confirm(a)){
-            $$("zz").style.display="none";
+            document.getElementById("zz").style.display="none";
             return true;
         }else {
-            $$("zz").style.display="none";
+            document.getElementById("zz").style.display="none";
             return false;
         }
 
