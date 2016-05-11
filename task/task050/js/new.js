@@ -278,6 +278,7 @@ function setid(){
             }
 
         }
+
     }
 }
 $("#addquestion").click(function () {
