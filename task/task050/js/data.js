@@ -3,60 +3,60 @@
  */
 var storage=window.localStorage;
 var data=[
-    {
-        title:"第一个问卷",
-        times:"2016/04/19",
-        stat:"0",
-        //0:发表中
-        //1：未发表
-        //2：已过期
-        questions:[
-            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
-            {typle:"text",text:"你是男是女？",per:[5,10]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
-
-        ]
-
-    },
-    {
-        title:"第N个问卷",
-        times:"2016/04/19",
-        stat:"1",
-        //0:发表中
-        //1：未发表
-        //2：已过期
-        questions:[
-            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
-            {typle:"text",text:"nnishiyigegui？",per:[5,10]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
-
-        ]
-
-    },
-    {
-        title:"第NN个问卷",
-        times:"2016/04/19",
-        stat:"2",
-        //0:发表中
-        //1：未发表
-        //2：已过期
-        questions:[
-            {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
-            {typle:"text",text:"nnishiyigegui？",per:[5,10],checkbox:"true"},
-            {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
-            {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
-
-        ]
-
-    },
+    //{
+    //    title:"第一个问卷",
+    //    times:"2016/04/19",
+    //    stat:"0",
+    //    //0:发表中
+    //    //1：未发表
+    //    //2：已过期
+    //    questions:[
+    //        {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+    //        {typle:"text",text:"你是男是女？",per:[5,10]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+    //
+    //    ]
+    //
+    //},
+    //{
+    //    title:"第N个问卷",
+    //    times:"2016/04/19",
+    //    stat:"1",
+    //    //0:发表中
+    //    //1：未发表
+    //    //2：已过期
+    //    questions:[
+    //        {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+    //        {typle:"text",text:"nnishiyigegui？",per:[5,10]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+    //
+    //    ]
+    //
+    //},
+    //{
+    //    title:"第NN个问卷",
+    //    times:"2016/04/19",
+    //    stat:"2",
+    //    //0:发表中
+    //    //1：未发表
+    //    //2：已过期
+    //    questions:[
+    //        {typle:"radius",text:"你好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,9,3,4]},
+    //        {typle:"text",text:"nnishiyigegui？",per:[5,10],checkbox:"true"},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好很","并不","非常不行","还可以"],per:[10,2,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,3,3,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,2,8,4]},
+    //        {typle:"checkbox",text:"你最近好吗？", option:["好得很","并不","非常不行","还可以"],per:[10,12,3,4]}
+    //
+    //    ]
+    //
+    //},
 
 ];
 //按下z键清除storage

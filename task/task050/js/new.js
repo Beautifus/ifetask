@@ -382,6 +382,7 @@ $(window).ready(function () {
                     return false
                 }
                 do_data();
+                newdata.stat="1"
                 data[storage.index]=newdata;
                 changdata(1)
                 location.href="index.html"
@@ -499,6 +500,7 @@ $(window).ready(function () {
                 }
                 do_data();
                 console.log(newdata)
+                newdata.stat="1";
                 data[length]=newdata;
                 changdata(1)
                 location.href="index.html"

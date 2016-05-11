@@ -164,6 +164,9 @@ $("#ul").find(".view").on("click", function (e) {
 
 });
 $("#ul").find(".edit").on("click", function (e) {
+    if ($(this).closest("div").prev().text()=="已过期"){
+        return false
+    }
     for (var i=0;i<$("#ul li").length;i++){
         if ($("#ul li").eq(i).html()==e.target.closest("li").innerHTML){
             storage.new="edit";
