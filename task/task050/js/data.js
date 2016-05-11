@@ -93,9 +93,10 @@ function changdata(a){
 }
 function time(d){
     var dd=new Date();
+    var dn=new Date(dd.getFullYear(),dd.getMonth(),dd.getDate());
     for (var i=0;i< d.length;i++){
         var dt=new Date(d[i].times);
-        if (dt.getTime()<dd.getTime()){
+        if (dt.getTime()<dn.getTime()){
             d[i].stat="2"
         }
     }

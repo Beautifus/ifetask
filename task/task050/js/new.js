@@ -380,6 +380,15 @@ $(window).ready(function () {
                 }else if ($("#date").val()==""){
                     alert("请填写合理日期！")
                     return false
+                }else {
+                    var dd=new Date();
+                    var dn=new Date(dd.getFullYear(),dd.getMonth(),dd.getDate());
+                    var dt=new Date($("#date").val());
+                    if (dt.getTime()<dn.getTime()){
+                        alert("请修改合理的截止时间")
+                        return false;
+                    }
+
                 }
                 do_data();
                 newdata.stat="1"
@@ -433,6 +442,15 @@ $(window).ready(function () {
                 }else if ($("#date").val()==""){
                     alert("请填写合理日期！")
                     return false
+                }else {
+                    var dd=new Date();
+                    var dn=new Date(dd.getFullYear(),dd.getMonth(),dd.getDate());
+                    var dt=new Date($("#date").val());
+                    if (dt.getTime()<dn.getTime()){
+                        alert("请修改合理的截止时间")
+                        return false;
+                    }
+
                 }
                 do_data();
                 newdata.stat="0"
@@ -497,6 +515,15 @@ $(window).ready(function () {
                 }else if ($("#date").val()==""){
                     alert("请填写合理日期！")
                     return false
+                }else {
+                    var dd=new Date();
+                    var dn=new Date(dd.getFullYear(),dd.getMonth(),dd.getDate());
+                    var dt=new Date($("#date").val());
+                    if (dt.getTime()<dn.getTime()){
+                        alert("请修改合理的截止时间")
+                        return false;
+                    }
+
                 }
                 do_data();
                 console.log(newdata)
@@ -554,6 +581,15 @@ $(window).ready(function () {
                 }else if ($("#date").val()==""){
                     alert("请填写合理日期！")
                     return false
+                }else {
+                    var dd=new Date();
+                    var dn=new Date(dd.getFullYear(),dd.getMonth(),dd.getDate());
+                    var dt=new Date($("#date").val());
+                    if (dt.getTime()<dn.getTime()){
+                        alert("请修改合理的截止时间")
+                        return false;
+                    }
+
                 }
                 do_data();
                 newdata.stat="0"
