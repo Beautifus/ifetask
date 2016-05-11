@@ -23,8 +23,8 @@ calendar.prototype={
         //console.log(this.date.getDay());
 
         //渲染日历
-        $$("month").innerHTML=this.months[this.month];
-        $$("year").innerHTML=this.year;
+        document.getElementById("month").innerHTML=this.months[this.month];
+        document.getElementById("year").innerHTML=this.year;
         this.date.setDate(1);
         console.log(this.days);
         console.log(this.date);
@@ -33,7 +33,7 @@ calendar.prototype={
         if (day==0){
             day=7;
         }
-        var content=$$("date-content");
+        var content=document.getElementById("date-content");
         var span=content.querySelectorAll("span");
         content.innerHTML="";
         var step1=1;
@@ -81,7 +81,7 @@ calendar.prototype={
         }
     },
     get_date: function (a) {
-        var year=$$("year").textContent;
+        var year=document.getElementById("year").textContent;
         var day=a.textContent;
         var month;
         //var date=new Date();
@@ -89,38 +89,54 @@ calendar.prototype={
         //var now_month=date.getMonth();
         //var now_day=date.getDate();
         for (var i=0;i<12;i++){
-            if ($$("month").textContent==this.months[i]){
-                //$$("date").value=year+"/"+(i+1)+"/"+day;
-                month=i
+            if (document.getElementById("month").textContent==this.months[i]){
+                //document.getElementById("date").value=year+"/"+(i+1)+"/"+day;
+                month=i+1;
             }
         }
+        if (month.toString().length<2){
+            month="0"+month;
+        }
+        if (day.toString().length<2){
+            day="0"+day;
+        }
+        var d_date=year+"/"+month+"/"+day
+        document.getElementById("date").value=d_date;
+        if (this.chose_date.length>0){
+            this.chose_date[0].style.background="#fff"
+            this.chose_date[0].style.color="#666"
+        }
+        this.chose_date[0]=a;
+        a.style.background="#ec7319"
+        a.style.color="#fff"
         console.log(this.chose_date);
-        if (this.chose_date.length==0){
-            this.chose_date.push({"year":year,"month":month,"day":day,"node":a});
-            a.style.background="#ec7319";
-            a.style.color="white";
-        }else if(this.chose_date.length==1) {
-            this.chose_date.push({"year":year,"month":month,"day":day,"node":a});
-            var _date1=new Date(this.chose_date[0].year,this.chose_date[0].month,this.chose_date[0].day);
-            var _date2=new Date(this.chose_date[1].year,this.chose_date[1].month,this.chose_date[1].day);
-            a.style.background="#ec7319";
-            a.style.color="white";
-            if (_date1.getTime()<=_date2.getTime()){
-                $$("date").value=this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day+"--"+this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day
-            }else {
-                $$("date").value=this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day+"--"+this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day
+        //if (this.chose_date.length==0){
+        //    this.chose_date.push({"year":year,"month":month,"day":day,"node":a});
+        //    a.style.background="#ec7319";
+        //    a.style.color="white";
+        //}else if(this.chose_date.length==1) {
+        //    this.chose_date.push({"year":year,"month":month,"day":day,"node":a});
+        //    var _date1=new Date(this.chose_date[0].year,this.chose_date[0].month,this.chose_date[0].day);
+        //    var _date2=new Date(this.chose_date[1].year,this.chose_date[1].month,this.chose_date[1].day);
+        //    a.style.background="#ec7319";
+        //    a.style.color="white";
+        //    if (_date1.getTime()<=_date2.getTime()){
+        //        document.getElementById("date").value=this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day+"--"+this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day
+        //    }else {
+        //        document.getElementById("date").value=this.chose_date[1].year+"/"+(Number(this.chose_date[1].month)+1)+"/"+this.chose_date[1].day+"--"+this.chose_date[0].year+"/"+(Number(this.chose_date[0].month)+1)+"/"+this.chose_date[0].day
+        //
+        //    }
+            ////FD7B75
+        //
+        //}else {
+        //    this.chose_date[0].node.style.background="#fff";
+        //    this.chose_date[0].node.style.color="#666";
+        //    this.chose_date[1].node.style.background="#fff";
+        //    this.chose_date[1].node.style.color="#666";
+        //    this.chose_date=[];
+        //    this.get_date(a);
+        //}
 
-            }
-            //FD7B75
-
-        }else {
-            this.chose_date[0].node.style.background="#fff";
-            this.chose_date[0].node.style.color="#666";
-            this.chose_date[1].node.style.background="#fff";
-            this.chose_date[1].node.style.color="#666";
-            this.chose_date=[];
-            this.get_date(a);
-        }
         console.log(this.chose_date);
 
     }
@@ -138,7 +154,7 @@ function initd(){
 //初始化日历
 initd();
 //月份增减
-$$("left").onclick= function () {
+document.getElementById("left").onclick= function () {
     if (date.month!=0){
         date.month--
     }else {
@@ -149,7 +165,7 @@ $$("left").onclick= function () {
     initd();
 
 };
-$$("right").onclick= function () {
+document.getElementById("right").onclick= function () {
     if (date.month!=11){
         date.month++
     }else {
@@ -161,12 +177,12 @@ $$("right").onclick= function () {
 
 };
 //弹出日历
-var input=$$("date");
+var input=document.getElementById("date");
 input.onfocus= function (e) {
     var oevent=e||event;
     oevent.stopPropagation();
     oevent.cancelBubble=true;
-    $$("getdate").style.display="block";
+    document.getElementById("getdate").style.display="block";
 
 };
 input.onclick=function(e){
@@ -179,19 +195,19 @@ window.document.onclick= function (e) {
     var oevent=e||event;
     oevent.stopPropagation();
     oevent.cancelBubble=true;
-        $$("getdate").style.display="none";
+        document.getElementById("getdate").style.display="none";
 
 
 };
 //input.onblur= function (e) {
 //    //var oevent=e||event;
 //    //oevent.stopPropagation();
-//    $$("getdate").style.display="none"
+//    document.getElementById("getdate").style.display="none"
 //};
 //获取时间加入input
 var get_time=new calendar(date.year,date.month);
-var content=$$("date-content");
-var new_date=$$("new-date");
+var content=document.getElementById("date-content");
+var new_date=document.getElementById("new-date");
 new_date.onclick= function (e) {
     var oevent=e||event;
     oevent.cancelBubble=true;
@@ -200,7 +216,10 @@ content.addEventListener("click", function (e) {
     var oevent=e||event;
     //oevent.cancelBubble=true;
     if (oevent.target.nodeName.toLowerCase()=="span"){
-        get_time.get_date(oevent.target)
+        if (oevent.target.style.color!="rgb(204, 204, 204)"){
+            get_time.get_date(oevent.target)
+        }
+
     }
 });
 
@@ -313,46 +332,57 @@ $(window).ready(function () {
             }
         }
         $("#date").val(data[storage.index].times)
+
+
+        var newdata={};
         $("#question-btn button").eq(0).click(function () {
             if (tc("是否保存？")){
-                delete date[storage.index]
-                var q_data=$(".question");
-                data[storage.index].title=$("#title").val();
-                data[storage.index].times=$("#date").val();
-                for (var i=0;i<q_data.length;i++){
-                    if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="radius";
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-                        }
-
-                    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="checkbox"
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-
-                        }
-                    }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="text";
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                    }
-
+                //delete date[storage.index]
+                //var q_data=$(".question");
+                //data[storage.index].title=$("#title").val();
+                //data[storage.index].times=$("#date").val();
+                //for (var i=0;i<q_data.length;i++){
+                //    if ($(q_data).eq(i).find("input[type=radio]").length>1){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="radius";
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
+                //            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //        }
+                //
+                //    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="checkbox"
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
+                //            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //
+                //        }
+                //    }else if($(q_data).eq(i).find("textarea").length>0){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="text";
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //    }
+                //
+                //}
+                if ($(".question").length<=0){
+                    alert("请至少添加一个问题！")
+                    return false
+                }else if ($("#date").val()==""){
+                    alert("请填写合理日期！")
+                    return false
                 }
-                console.log(data[storage.index])
+                do_data();
+                data[storage.index]=newdata;
                 changdata(1)
                 location.href="index.html"
             }
@@ -360,44 +390,52 @@ $(window).ready(function () {
         })
         $("#question-btn button").eq(1).click(function () {
             if (tc("是否发表？")){
-                delete date[storage.index]
-                var q_data=$(".question");
-                data[storage.index].title=$("#title").val();
-                data[storage.index].times=$("#date").val();
-                for (var i=0;i<q_data.length;i++){
-                    if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="radius";
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-                        }
-
-                    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="checkbox"
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
-                            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-
-                        }
-                    }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!data[storage.index].questions[i]){
-                            data[storage.index].questions[i]={};
-                        }
-                        data[storage.index].questions[i].typle="text";
-                        var tid="#q"+(i+1);
-                        data[storage.index].questions[i].text=$(tid).val();
-                    }
-
+                //var q_data=$(".question");
+                //data[storage.index].title=$("#title").val();
+                //data[storage.index].times=$("#date").val();
+                //for (var i=0;i<q_data.length;i++){
+                //    if ($(q_data).eq(i).find("input[type=radio]").length>1){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="radius";
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
+                //            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //        }
+                //
+                //    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="checkbox"
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q2-content input[type=text]").length;j++){
+                //            data[storage.index].questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //
+                //        }
+                //    }else if($(q_data).eq(i).find("textarea").length>0){
+                //        if (!data[storage.index].questions[i]){
+                //            data[storage.index].questions[i]={};
+                //        }
+                //        data[storage.index].questions[i].typle="text";
+                //        var tid="#q"+(i+1);
+                //        data[storage.index].questions[i].text=$(tid).val();
+                //    }
+                //
+                //}
+                if ($(".question").length<=0){
+                    alert("请至少添加一个问题！")
+                    return false
+                }else if ($("#date").val()==""){
+                    alert("请填写合理日期！")
+                    return false
                 }
-                data[storage.index].stat="0"
+                do_data();
+                newdata.stat="0"
+                data[storage.index]=newdata;
                 changdata(1)
                 location.href="index.html"
             }
@@ -408,50 +446,58 @@ $(window).ready(function () {
         var length=data.length;
         $("#question-btn button").eq(0).click(function () {
             if (tc("是否保存？")){
-                newdata={};
-                newdata.questions=[];
-                var q_data=$(".question");
-                newdata.title=$("#title").val();
-                newdata.times=$("#date").val();
-                for (var i=0;i<q_data.length;i++){
-                    if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="radius";
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
-                            if (!newdata.questions[i].option){
-                                newdata.questions[i].option=[];
-                            }
-                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-                        }
-
-                    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="checkbox"
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
-                            if (!newdata.questions[i].option){
-                                newdata.questions[i].option=[];
-                            }
-                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-
-                        }
-                    }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="text";
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                    }
-
+                //newdata={};
+                //newdata.questions=[];
+                //var q_data=$(".question");
+                //newdata.title=$("#title").val();
+                //newdata.times=$("#date").val();
+                //for (var i=0;i<q_data.length;i++){
+                //    if ($(q_data).eq(i).find("input[type=radio]").length>1){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="radius";
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                //            if (!newdata.questions[i].option){
+                //                newdata.questions[i].option=[];
+                //            }
+                //            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //        }
+                //
+                //    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="checkbox"
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                //            if (!newdata.questions[i].option){
+                //                newdata.questions[i].option=[];
+                //            }
+                //            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //
+                //        }
+                //    }else if($(q_data).eq(i).find("textarea").length>0){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="text";
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //    }
+                //
+                //}
+                if ($(".question").length<=0){
+                    alert("请至少添加一个问题！")
+                    return false
+                }else if ($("#date").val()==""){
+                    alert("请填写合理日期！")
+                    return false
                 }
+                do_data();
                 console.log(newdata)
                 data[length]=newdata;
                 changdata(1)
@@ -462,44 +508,52 @@ $(window).ready(function () {
         })
         $("#question-btn button").eq(1).click(function () {
             if (tc("是否发表？")){
-                newdata={};
-                newdata.questions=[];
-                var q_data=$(".question");
-                newdata.title=$("#title").val();
-                newdata.times=$("#date").val();
-                for (var i=0;i<q_data.length;i++){
-                    if ($(q_data).eq(i).find("input[type=radio]").length>1){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="radius";
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
-                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-                        }
-
-                    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="checkbox"
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
-                            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
-
-                        }
-                    }else if($(q_data).eq(i).find("textarea").length>0){
-                        if (!newdata.questions[i]){
-                            newdata.questions[i]={};
-                        }
-                        newdata.questions[i].typle="text";
-                        var tid="#q"+(i+1);
-                        newdata.questions[i].text=$(tid).val();
-                    }
-
+                //newdata={};
+                //newdata.questions=[];
+                //var q_data=$(".question");
+                //newdata.title=$("#title").val();
+                //newdata.times=$("#date").val();
+                //for (var i=0;i<q_data.length;i++){
+                //    if ($(q_data).eq(i).find("input[type=radio]").length>1){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="radius";
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                //            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //        }
+                //
+                //    }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="checkbox"
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //        for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                //            newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                //
+                //        }
+                //    }else if($(q_data).eq(i).find("textarea").length>0){
+                //        if (!newdata.questions[i]){
+                //            newdata.questions[i]={};
+                //        }
+                //        newdata.questions[i].typle="text";
+                //        var tid="#q"+(i+1);
+                //        newdata.questions[i].text=$(tid).val();
+                //    }
+                //
+                //}
+                if ($(".question").length<=0){
+                    alert("请至少添加一个问题！")
+                    return false
+                }else if ($("#date").val()==""){
+                    alert("请填写合理日期！")
+                    return false
                 }
+                do_data();
                 newdata.stat="0"
                 data[length]=newdata;
                 changdata(1);
@@ -508,6 +562,58 @@ $(window).ready(function () {
             }
 
         })
+    }
+    function do_data(){
+
+        newdata={};
+        newdata.questions=[];
+        var q_data=$(".question");
+        newdata.title=$("#title").val();
+        newdata.times=$("#date").val();
+        for (var i=0;i<q_data.length;i++){
+            if ($(q_data).eq(i).find("input[type=radio]").length>1){
+                if (!newdata.questions[i]){
+                    newdata.questions[i]={};
+                }
+                newdata.questions[i].typle="radius";
+                var tid="#q"+(i+1);
+                newdata.questions[i].text=$(tid).val();
+                for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                    if (!newdata.questions[i].option){
+                        newdata.questions[i].option=[];
+                    }
+                    newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+                }
+
+            }else if($(q_data).eq(i).find("input[type=checkbox]").length>1){
+                if (!newdata.questions[i]){
+                    newdata.questions[i]={};
+                }
+                newdata.questions[i].typle="checkbox"
+                var tid="#q"+(i+1);
+                newdata.questions[i].text=$(tid).val();
+                for (var j=0;j<$("#q"+(i+1)+"-content input[type=text]").length;j++){
+                    if (!newdata.questions[i].option){
+                        newdata.questions[i].option=[];
+                    }
+                    newdata.questions[i].option[j]=$(q_data).eq(i).find("section input[type=text]").eq(j).val();
+
+                }
+            }else if($(q_data).eq(i).find("textarea").length>0){
+                if (!newdata.questions[i]){
+                    newdata.questions[i]={};
+                }
+                newdata.questions[i].typle="text";
+                var tid="#q"+(i+1);
+                newdata.questions[i].text=$(tid).val();
+                if ($(q_data).eq(i).find("checkbox").checked){
+                    newdata.questions[i].checkbox="true"
+                }else {
+                    newdata.questions[i].checkbox="false"
+                }
+            }
+
+        }
     }
 });
 
