@@ -156,10 +156,13 @@ $$("ul").addEventListener("click", function (ev) {
 //jquery扩展
 $("#ul").find(".view").on("click", function (e) {
     for (var i=0;i<$("#ul li").length;i++){
-        if ($("#ul li").eq(i).html()==e.target.closest("li").innerHTML){
-            storage.index=i;
-            location.href="view.html"
+        if (e.target.closest("div").previousElementSibling.textContent=="已过期"){
+            if ($("#ul li").eq(i).html()==e.target.closest("li").innerHTML){
+                storage.index=i;
+                location.href="view.html"
+            }
         }
+
     }
 
 });

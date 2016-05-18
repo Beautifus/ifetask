@@ -47,10 +47,10 @@ for (var i=0;i<data[index].questions.length;i++){
             $(question).find("div.left li").eq(j).text(data[index].questions[i].option[j]);
             totle+=data[index].questions[i].per[j];
         }
-        for (var k=0;k<=j;k++){
+        for (var k=0;k<j;k++){
             var width=Math.round((data[index].questions[i].per[k]/totle)*1000)/10;
             $(question).find("div.right ul li").eq(k).find(" div span:first-of-type").width(width+"%");
-            $(question).find("div.right ul li:eq(k)>span").text(width+"%");
+            $(question).find("div.right ul li").eq(k).find("span:last").text(width+"%");
             //console.log($("div.right li").eq(k).find("span").eq(1).width)
         }
     }else if(data[index].questions[i].typle=="text"){
