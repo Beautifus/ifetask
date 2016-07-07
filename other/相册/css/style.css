@@ -1,0 +1,19 @@
+
+*{
+    margin:0;
+    padding:0;
+}
+#pic{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    margin:20px auto;
+    text-align: center;
+}
+#pic img{
+    position:absolute;
+    height:auto;
+    border-radius: 5px;
+    outline: 2px #cccccc solid;
+}
